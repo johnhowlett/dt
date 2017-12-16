@@ -7,7 +7,8 @@ COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
 CONTAINER_IMAGE?=docker.io/johnhowlett/${APP}
 
-GOOS?=darwin
+#GOOS?=darwin
+GOOS=linux
 GOARCH?=amd64
 
 # deletes the binary
