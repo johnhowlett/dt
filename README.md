@@ -17,4 +17,8 @@ es ist ein Webserver zu programmieren in der Sprache go diese Applikation läuft
 Die Applikation greift auf eine Instanz von dynatrace zu und greifft via rest cals den Status von den dynaTrace Agenten.<br>
 Es soll so aufgebaut sein das weiter Service eingebunden werden können.
 
+# Makefile
 
+make test : lets test the applikation
+
+make 

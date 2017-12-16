@@ -4,6 +4,6 @@ ENV PORT 8000
 
 EXPOSE $PORT
 
-COPY docker /
+COPY dtservice /
 
-CMD ["/docker"]
+CMD ["/dtservice"]

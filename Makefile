@@ -10,16 +10,19 @@ CONTAINER_IMAGE?=docker.io/johnhowlett/${APP}
 GOOS?=darwin
 GOARCH?=amd64
 
+# deletes the binary
 clean:
 	rm -f ${APP}
 
+# maks a clean and new build of the git repo version
 build: clean
 	CGO_ENABLED=0 GOOS=${GOOS} GOARCH=${GOARCH} go build \
 		-ldflags "-s -w -X ${PROJECT}/version.Release=${RELEASE} \
 		-X ${PROJECT}/version.Commit=${COMMIT} -X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \
 		-o ${APP}
 
-container: build
+# builds a docker container
+container: 
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
 
 # run: container
