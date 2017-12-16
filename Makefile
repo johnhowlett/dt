@@ -41,11 +41,12 @@ test:
 push: container
 	docker push $(CONTAINER_IMAGE):$(RELEASE)
 
-minikube: push
+#minikube: push
+minikube: 
 	for t in $(shell find ./kubernetes/docker -type f -name "*.yaml"); do \
         cat $$t | \
-        	gsed -E "s/\{\{(\s*)\.Release(\s*)\}\}/$(RELEASE)/g" | \
-        	gsed -E "s/\{\{(\s*)\.ServiceName(\s*)\}\}/$(APP)/g"; \
+        	/usr/local/bin/sed -E "s/\{\{(\s*)\.Release(\s*)\}\}/$(RELEASE)/g" | \
+        	/usr/local/bin/sed -E "s/\{\{(\s*)\.ServiceName(\s*)\}\}/$(APP)/g"; \
         echo ---; \
     done > tmp.yaml
 	kubectl apply -f tmp.yaml
