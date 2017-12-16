@@ -7,7 +7,7 @@ COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
 CONTAINER_IMAGE?=docker.io/johnhowlett/${APP}
 
-GOOS?=linux
+GOOS?=darwin
 GOARCH?=amd64
 
 clean:
@@ -22,11 +22,14 @@ build: clean
 container: build
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
 
-run: container
-	docker stop $(APP):$(RELEASE) || true && docker rm $(APP):$(RELEASE) || true
-	docker run --name ${APP} -p ${PORT}:${PORT} --rm \
-		-e "PORT=${PORT}" \
-		$(APP):$(RELEASE)
+# run: container
+# 	docker stop $(APP):$(RELEASE) || true && docker rm $(APP):$(RELEASE) || true
+# 	docker run --name ${APP} -p ${PORT}:${PORT} --rm \
+# 		-e "PORT=${PORT}" \
+# 		$(APP):$(RELEASE)
+
+run: build
+	PORT=${PORT} ./${APP}
 
 test:
 	go test -v -race ./...
