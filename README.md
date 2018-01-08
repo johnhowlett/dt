@@ -12,12 +12,12 @@ git hub
 
 make
 
-# Ziel 
+## Ziel 
 es ist ein Webserver zu programmieren in der Sprache go diese Applikation läuft in einem Container im einem Kubernetes Cluster.<br>
 Die Applikation greift auf eine Instanz von dynatrace zu und greifft via rest cals den Status von den dynaTrace Agenten.<br>
 Es soll so aufgebaut sein das weiter Service eingebunden werden können.
 
-# Makefile
+## Makefile
 
 make test : lets test the applikation
 
