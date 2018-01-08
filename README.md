@@ -26,4 +26,4 @@ make
 ## Copy 
 
 ## License
-
+die license is free
