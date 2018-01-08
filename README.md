@@ -22,3 +22,8 @@ Es soll so aufgebaut sein das weiter Service eingebunden werden können.
 make test : lets test the applikation
 
 make 
+
+## Copy 
+
+## License
+
