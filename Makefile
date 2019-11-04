@@ -2,7 +2,6 @@ PROJECT?=github.com/johnhowlett/dt
 APP?=dtservice
 PORT?=8000
 
-# VARIABLES
 RELEASE?=0.0.4
 COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
